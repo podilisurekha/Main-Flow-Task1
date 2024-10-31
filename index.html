@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Widget</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("../sur/img/weather.jpg");
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .weather-widget {
+            position: relative;
+            text-align: center;
+            width: 320px;
+            padding: 20px;
+            border-radius: 12px;
+            background: rgba(13, 26, 43, 0.85); /* Slightly transparent dark background */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .dots {
+            font-size: 24px;
+        }
+
+        .location-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        .headline {
+            font-size: 40px;
+            font-weight: bolder;
+            padding-bottom: 100px;
+            padding-right: 100px;
+            color: #070111;
+            
+        
+        }
+
+        .location {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .temperature {
+            font-size: 64px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .status {
+            font-size: 20px;
+            margin-top: 5px;
+        }
+
+        .range {
+            font-size: 16px;
+            color: #ccc;
+            margin-top: 5px;
+        }
+
+        /* Graph Styling */
+        .graph-container {
+            margin-top: 20px;
+            height: 60px;
+            position: relative;
+        }
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .line {
+            fill: none;
+            stroke: #4ca3dd;
+            stroke-width: 2;
+        }
+
+        .hourly {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .hour {
+            font-size: 14px;
+            color: #ccc;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .hour::before {
+            content: "🌙";
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .forecast {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .day {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            font-size: 14px;
+            color: #ccc;
+            border-bottom: 1px solid #333;
+            padding: 5px 0;
+        }
+
+        .day:last-child {
+            border-bottom: none;
+        }
+
+        .rain {
+            color: #4ca3dd;
+            margin-left: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="headline">Today's Weather Update</div>
+    <div class="weather-widget">
+        <div class="top-bar">
+            <span class="dots">⋮</span> <!-- Three vertical dots -->
+            <span>
+                <svg class="location-icon" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/>
+                </svg>
+            </span>
+        </div>
+
+       
+        <div class="location">Tirupati</div>
+        <div class="temperature">26°C</div>
+        <div class="status">Clear</div>
+        <div class="range">23 ~ 33°C Feels like 31°C</div>
+        
+        <!-- Graph Container -->
+        <div class="graph-container">
+            <svg viewBox="0 0 320 60" xmlns="http://www.w3.org/2000/svg">
+                <polyline class="line" points="0,40 80,50 160,35 240,25 320,40" />
+            </svg>
+        </div>
+
+        <div class="hourly">
+            <div class="hour">Now</div>
+            <div class="hour">10/31</div>
+            <div class="hour">02:00</div>
+            <div class="hour">04:00</div>
+            <div class="hour">06:00</div>
+        </div>
+    </br>
+        <div class="forecast">
+            <div class="day">
+                <span>10/30 Today</span> 
+                <span>23° <span class="rain">🌧️ 40%</span> 33°</span>
+            </div>
+            <div class="day">
+                <span>10/31 Tomorrow</span> 
+                <span>22° <span class="rain">🌧️ 43%</span> 34°</span>
+            </div>
+            <div class="day">
+                <span>11/01 Fri</span> 
+                <span>22° 🌥️ 32°</span>
+            </div>
+            <div class="day">
+                <span>11/02 Sat</span> 
+                <span>22° <span class="rain">🌧️ 67%</span> 33°</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
